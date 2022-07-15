@@ -1,4 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
+import mixins from './mixins'
 
-createApp(App).mount('#app')
+createApp(App).mixin(mixins).use(store).use(router).mount('#app')
+
+window.Kakao.init('a9ed324a6935bbb51526104f39c091a7')
