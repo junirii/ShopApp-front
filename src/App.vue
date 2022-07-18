@@ -1,10 +1,28 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/kakaologin">카카오로그인</router-link>
   </nav>
-  <router-view/>
+  <router-view/> -->
+  <div>
+    <Header />
+    <router-view />
+    <Footer />
+  </div>
+
 </template>
+
+<script>
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+
+export default {
+  components: { Header, Footer },
+  computed: {
+
+  }
+}
+</script>
 
 <style>
 #app {
