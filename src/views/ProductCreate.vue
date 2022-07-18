@@ -78,7 +78,7 @@
         <label class="col-md-3 col-form-label">출고일</label>
         <div class="col-md-9">
           <div class="input-group mb-3">
-            <input type="number" class="form-control" v-model="product.outbound_days">
+            <input type="number" class="form-control"  ref="outbound_days" v-model="product.outbound_days">
             <span class="input-group-text">일 이내 출고</span>
           </div>
         </div>
@@ -164,6 +164,11 @@ export default {
       if(this.product.delivery_price === '' || this.product.delivery_price === 0){
         this.$refs.delivery_price.focus();
         return this.$swal('배송비를 입력하세요.');
+      }
+
+        if(this.product.outbound_days === '' || this.product.outbound_days === 0){
+        this.$refs.outbound_days.focus();
+        return this.$swal('출고일을 입력하세요.');
       }
     }
   }
