@@ -58,13 +58,12 @@ export default {
         }
       });
     },
-    getProfile(authObj){
+    async getProfile(authObj) {
       console.log(authObj);
       window.Kakao.API.request({
         url: '/v2/user/me',
         success: async res => {
           const acc = res.kakao_account;
-          console.log(acc);
           const params = {
             social_type: 1,
             email: acc.email,
@@ -73,7 +72,7 @@ export default {
             thumb_img: acc.profile.thumbnail_image_url
           }
           console.log(params);
-          this.login(params);
+          await this.login(params);
         },
         fail: e => {
           console.error(e);
