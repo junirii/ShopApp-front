@@ -12,7 +12,14 @@ export default {
             })).data;
         },
         async $get(url, param) {
-                return (await axios.get(url, {
+            return (await axios.get(url, {
+                params: param
+            }).catch( e => {
+                console.error(e);
+            })).data;
+        },
+        async $delete(url, param) {
+            return (await axios.delete(url, {
                 params: param
             }).catch( e => {
                 console.error(e);
@@ -24,7 +31,7 @@ export default {
                 fr.onload = e => {
                     resolve(e.target.result);
                 }
-                fr.readAsDataURL(file);
+                fr.readAsDataURL(file); //이미지를 문자열로 변형
             });
         }
     }
