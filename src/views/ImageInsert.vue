@@ -124,9 +124,8 @@ export default {
       this.getProductImage();
     },
     async deleteImage(e, id) {
-      const result = await this.$delete(`/api/productImageDelete/${id}`);
-      console.log(result);
-      if(result) {
+      const res = await this.$delete(`/api/productImageDelete/${id}`);
+      if(res.result) {
         e.target.parentNode.remove();
       }
     }
